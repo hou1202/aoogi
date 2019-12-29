@@ -19,7 +19,7 @@ return [
     // 应用地址
     'app_host'               => '',
     // 应用调试模式
-    'app_debug'              => false,
+    'app_debug'              => true,
     // 应用Trace
     'app_trace'              => false,
     // 是否支持多模块
@@ -167,7 +167,7 @@ return [
      * */
 
     //加密、解密密钥
-    'crypt_user_key'         => '84e7871c139909e1982c05be74c3d06d',
+    'crypt_user_key'         => '84e7871c139909e1982c05se74c3d06d',
     //默认用户表
     'user_table'           => 'user',
     //默认帐户字段名
@@ -175,5 +175,57 @@ return [
     //默认帐户密码字段名
     'user_pwd'            => 'password',
 
+    /*
+     * 短信验证码配置项
+     * */
+    //帐户
+    'sms_account'       => '8E00048',
+    //密码
+    'sms_password'      =>'8E0004888',
+
+    /**
+     * 支付配置项
+     */
+    //支付宝配置参数
+    'alipay_config'=>[
+        'app_id' =>'2017090508565516',   //应用APPID。
+
+        'seller_id' =>'2088521367543235',   //这里是你在成功申请支付宝接口后获取到的PID；
+
+        'sign_type'=>'RSA',     //签名方式
+
+        'charset'=> 'utf-8',      //编码格式
+
+        'transport'=> 'http',
+
+        'gatewayUrl' => "https://openapi.alipay.com/gateway.do",       //支付宝网关- 正式地址
+
+        //'gateway_url' => "https://openapi.alipaydev.com/gateway.do",       //支付宝网关- 测试地址
+
+        //应用密钥/私钥
+        'merchant_private_key'=> '',
+
+        //应用公钥
+        'public_key'=> '',
+
+        //支付宝公钥
+        'alipay_public_key' => '',
+
+        //这里是异步通知页面url，提交到项目的Pay控制器的payNotify方法；
+        'notify_url'=>'http://www.aoogi.com/pay/notify',
+
+        //这里是页面跳转通知url，提交到项目的Pay控制器的payReturn方法；
+        'return_url'=>'http://www.aoogi.com/pay/revert',
+
+        //支付成功跳转到的页面，我这里跳转到项目的User控制器，myorder方法，并传参payed（已支付列表）
+        'success_url'=>'http://www.aoogi.com/pay/success',
+
+        //支付失败跳转到的页面，我这里跳转到项目的User控制器，myorder方法，并传参unpay（未支付列表）
+        'quit_url'=>'http://www.aoogi.com/pay/error',
+
+        'cacert_pem'=> getcwd().'/../pay/alipay/key/cacert.pem',
+        'rsa_key_pem'=> getcwd().'/../pay/alipay/key/rsa_private_key.pem',      //密钥路径
+        'public_key_pem'=> getcwd().'/../pay/alipay/key/alipay_public_key.pem',     //公钥路径
+    ],
 
 ];

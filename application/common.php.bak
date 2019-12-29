@@ -12,17 +12,12 @@
 // 应用公共文件
 
 /**
- * 常量定义
- */
-define('DS',DIRECTORY_SEPARATOR);
-
-/**
- * 数据加密函数
+ * 加密函数
  * @param string $txt 需要加密的字符串
  * @param string $key 密钥
  * @return string 返回加密结果
  */
-function DEncrypt($txt, $key = ''){
+function encrypt($txt, $key = ''){
     if (empty($txt)) return $txt;
     if (empty($key)) $key = md5('admin_account');
     $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.";
@@ -57,12 +52,12 @@ function DEncrypt($txt, $key = ''){
 
 
 /**
- * 数据解密函数
+ * 解密函数
  * @param string $txt 需要解密的字符串
  * @param string $key 密匙
  * @return string 字符串类型的返回结果
  */
-function DDecrypt($txt, $key = '', $ttl = 0){
+function decrypt($txt, $key = '', $ttl = 0){
     if (empty($txt)) return $txt;
     if (empty($key)) $key = md5('admin_account');
     $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.";
@@ -101,13 +96,4 @@ function DDecrypt($txt, $key = '', $ttl = 0){
         }
     }
     return $tmp;
-}
-
-/*
- * 格式化字符串
- * @ param string $value    需格式化字符串
- * @ return float 格式化后保留两位小数的浮点数
- * */
-function float($value){
-    return number_format($value,2,'.','');
 }

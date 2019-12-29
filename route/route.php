@@ -12,10 +12,6 @@
 //设置全局变量规则
 Route::pattern([
     'id'   => '\d+',
-    'goods_id'  => '\d+',
-    'coupon_id'  => '\d+',
-    'address_id'  => '\d+',
-    'order_id'  => '\d+',
     'type'  => '\d+',
     'page'  => '\d+',
     'limit'  => '\d+',
