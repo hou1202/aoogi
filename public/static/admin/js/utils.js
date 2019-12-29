@@ -58,7 +58,11 @@ layui.define(['lodash', 'axios'], function(exports) {
 
           //对路由总地址进行循环
           for(var pi = 0 ; pi < routes.length ; pi++) {
-              var routes_arr = routes[pi].path.split('/');
+              if(routes[pi].path == null){
+                  var routes_arr = []
+              }else{
+                  var routes_arr = routes[pi].path.split('/');
+              }
 
               if(hash_arr.length === routes_arr.length && hash_arr[1] === routes_arr[1]){
 
