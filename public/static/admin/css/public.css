@@ -50,3 +50,12 @@
     color:#009688;
     font-weight: 900;
 }
+
+/*返回按钮*/
+.card-back {
+    border-bottom:none;
+    display:inline-block;
+    position:absolute;
+    top:15px;
+    right:15px;
+}
